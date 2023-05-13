@@ -1,0 +1,23 @@
+#
+# Example Configuration
+#
+
+name = "Example"
+
+[main]
+title = "This is an Example"
+last_update = 2023-05-13 12:00:00
+
+[connection]
+services = [ "http", "ftp" ]
+ssl = true
+ports = [ 8080, 8081, 8022 ]
+
+[service.http]
+ip = "127.0.0.1"
+base_dir = "~/public_http"
+
+[service.ftp]
+ip = "127.0.0.1"
+base_dir = "~/public_http"
+
