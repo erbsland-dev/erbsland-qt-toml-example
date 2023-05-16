@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.25)
 
-project(erbsland-qt-toml-unittest)
+project(erbsland-qt-toml-example)
 
 # Detect and load either Qt5 or Qt6.
 if (DEFINED Qt6_DIR AND NOT Qt6_DIR MATCHES "-NOTFOUND")

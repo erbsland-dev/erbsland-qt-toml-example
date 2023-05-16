@@ -12,6 +12,7 @@ using namespace elqt::toml;
 
 void displayValue(const ValuePtr &value, const QString &path) {
     std::cout << path.toStdString() << "\n";
+    std::cout << "Location: " << value->locationRange().toString(LocationFormat::Long).toStdString() << "\n";
     if (value->isTable()) {
         std::cout << "Table: " << value->size() << " Elements" << "\n\n";
         for (const auto &[key, tableValue] : value->toTable()) {
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]) {
         auto path = QCoreApplication::applicationDirPath() + "/config.toml";
         Parser parser{};
         std::cout << "Reading configuration from: " << path.toStdString() << "\n";
-        toml = parser.parseFile(path);
+        toml = parser.parseFileOrThrow(path);
     } catch (const Error &err) {
         std::cerr << err.toString().toStdString() << std::endl;
         return 1;
